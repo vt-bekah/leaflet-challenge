@@ -17,3 +17,31 @@ let map = L.map("map", {
 
 // Add "streetmap" tile layer to the map
 streetmap.addTo(map)
+
+// Create a legend
+let legendInfo = L.control({position: "bottomright"})
+
+// Insert div with class of "legend"
+legendInfo.onAdd = function() {
+    let div = L.DomUtil.create("div", "legend")
+    return div
+}
+
+// Add legend to map
+legendInfo.addTo(map)
+
+// Perform API call to United States Geological Survey (USGS) GeoJSON
+d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(function(data) {
+    // Console log data to review
+    console.log("week of earthquakes: ", data)
+
+    // Review data and console log examples for debug purposes
+    let features = data.features
+    console.log("features", features)
+    console.log("locations", features[0].geometry)
+    console.log("properties", features[0].properties)
+    console.log("magnitude", features[0].properties.mag)
+    console.log("depth", features[0].geometry.coordinates[2])
+    console.log("location description", features[0].properties.place)
+
+})
