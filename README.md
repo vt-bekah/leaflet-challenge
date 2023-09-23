@@ -34,9 +34,9 @@ This project displays earthquakes that have been recorded by the United States G
 
 Example Views: 
 <br> 
-![Initial Load](./Leaflet-Part-1/images/EarthquakeWebsiteOnLoad.png)
+![Initial Load](Leaflet-Part-1/images/EarthquakeWebsiteOnLoad.png)
 <br>
-![Zoom In](./Leaflet-Part-1/images/EarthquakeWebsiteZoomPopup.png)
+![Zoom In](Leaflet-Part-1/images/EarthquakeWebsiteZoomPopup.png)
 
 
 # Getting Started
