@@ -135,7 +135,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         newMarker.addTo(layers[eqDepthCode])
 
         // Bind a popup displaying location description and magnitude
-        newMarker.bindPopup("<h3>" + feature.properties.place + "</h3><h4>Magnitude: " + feature.properties.mag + " <br>Depth: " + feature.geometry.coordinates[2] + "</h4>")
+        newMarker.bindPopup("<h3>" + feature.properties.place + "</h3><h4>Magnitude: " + feature.properties.mag + " <br>Depth: " + feature.geometry.coordinates[2] + "km</h4>")
     }
 
     // Call the update legend function
