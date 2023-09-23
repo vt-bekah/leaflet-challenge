@@ -22,30 +22,24 @@ html {
 
 .legend .depth90plus {
   color: #ff0000;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }
 
 .legend .depth70_89 {
   color: #f34c19;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }
 
 .legend .depth50_69 {
   color: #f39819;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }
 
 .legend .depth30_49 {
   color: #ecdb18;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }
 
 .legend .depth10_29 {
   color: #b1f11e;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }
 
 .legend .depth09minus {
   color: #41f319;
-  /* text-shadow: -1px -1px 0 #373737, 1px -1px 0 #373737, -1px 1px 0 #373737, 1px 1px 0 #373737; */
 }

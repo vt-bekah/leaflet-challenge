@@ -3,7 +3,7 @@ let streetmap = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 })
 
-// Initialize all the LayerGroups for different earthquake magnitude bins
+// Initialize all the LayerGroups for different earthquake depth bins
 let layers = {
     depth90plus: new L.LayerGroup(),
     depth70_89: new L.LayerGroup(),
@@ -32,12 +32,12 @@ streetmap.addTo(map)
 
 // Create overlays object to add to the layer control
 let overlays = {
-    "90+": layers.depth90plus,
+    "Depth 90+": layers.depth90plus,
     "70 up to 90": layers.depth70_89,
     "50 up to 70": layers.depth50_69,
     "30 up to 50": layers.depth30_49,
     "10 up to 30": layers.depth10_29,
-    "< 10": layers.depth09minus
+    "Depth < 10": layers.depth09minus
 }
 
 // Create a control to select different magnitude levels
@@ -89,7 +89,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         depth09minus: 0
     }
 
-    // Initialize earthquake magnitude code to use for accessing the appropriate data group
+    // Initialize earthquake depth code to use for accessing the appropriate data group
     let eqDepthCode
 
     // Loop through the earthquakes
@@ -97,7 +97,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         
         // Create a new object with data from features
         let feature = features[i]
-        // Set the eqMagCode based on earthquake depth (3rd item in geometry)
+        // Set the eqDepthCode based on earthquake depth (3rd item in geometry coordinates)
         if (feature.geometry.coordinates[2] >= 90) {
             eqDepthCode = "depth90plus"
         }
@@ -135,10 +135,10 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         newMarker.addTo(layers[eqDepthCode])
 
         // Bind a popup displaying location description and magnitude
-        newMarker.bindPopup("<h3>" + feature.properties.place + "</h3><h4>Magnitude: " + feature.properties.mag + "</h4>")
+        newMarker.bindPopup("<h3>" + feature.properties.place + "</h3><h4>Magnitude: " + feature.properties.mag + " <br>Depth: " + feature.geometry.coordinates[2] + "</h4>")
     }
 
-    // Call the update Legen function
+    // Call the update legend function
     updateLegend(eqCount)
 })
 
