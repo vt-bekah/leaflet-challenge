@@ -32,12 +32,12 @@ streetmap.addTo(map)
 
 // Create overlays object to add to the layer control
 let overlays = {
-    "Depth 90+": layers.depth90plus,
-    "70 up to 90": layers.depth70_89,
-    "50 up to 70": layers.depth50_69,
-    "30 up to 50": layers.depth30_49,
-    "10 up to 30": layers.depth10_29,
-    "Depth < 10": layers.depth09minus
+    "Depth 90+km": layers.depth90plus,
+    "70km up to 90km": layers.depth70_89,
+    "50km up to 70km": layers.depth50_69,
+    "30km up to 50km": layers.depth30_49,
+    "10km up to 30km": layers.depth10_29,
+    "Depth < 10km": layers.depth09minus
 }
 
 // Create a control to select different magnitude levels
@@ -145,12 +145,12 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 function updateLegend(count) {
     document.querySelector(".legend").innerHTML = [
         "<p>USGS All Earthquakes, Past Week</p>",
-        "<p class='depth90plus'> Earthquakes with depth >= 90: " + count.depth90plus + "</p>",
-        "<p class='depth70_89'> 70 >= depth  < 90: " + count.depth70_89 + "</p>",
-        "<p class='depth50_69'> 50 >= depth  < 70: " + count.depth50_69 + "</p>",
-        "<p class='depth30_49'> 30 >= depth  < 50: " + count.depth30_49 + "</p>",
-        "<p class='depth10_29'> 10 >= depth  < 30: " + count.depth10_29 + "</p>",
-        "<p class='depth09minus'> Earthquakes with depth < 10: " + count.depth09minus + "</p>"
+        "<p class='depth90plus'> Earthquakes with depth >= 90km: " + count.depth90plus + "</p>",
+        "<p class='depth70_89'> 70km >= depth  < 90km: " + count.depth70_89 + "</p>",
+        "<p class='depth50_69'> 50km >= depth  < 70km: " + count.depth50_69 + "</p>",
+        "<p class='depth30_49'> 30km >= depth  < 50km: " + count.depth30_49 + "</p>",
+        "<p class='depth10_29'> 10km >= depth  < 30km: " + count.depth10_29 + "</p>",
+        "<p class='depth09minus'> Earthquakes with depth < 10km: " + count.depth09minus + "</p>"
     ].join("")
 }
 
