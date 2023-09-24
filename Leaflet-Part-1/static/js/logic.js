@@ -163,7 +163,7 @@ function updateLegend(count, title) {
             "<tr class='depth50_69'>", 
                 "<td style='background-color: #f38a19;'>.....</td>",
                 "<td> 50km >= depth  < 70km: " + count.depth50_69 + "</td>",
-            "</tr>",
+            "</tr>", 
             "<tr class='depth30_49'>", 
                 "<td style='background-color: #ecb318e4;'>.....</td>",
                 "<td> 30km >= depth  < 50km: " + count.depth30_49 + "</td>",
@@ -178,14 +178,3 @@ function updateLegend(count, title) {
     ].join("")
 }
 
-
-
-{/* <table>
-    <tr>
-        <td style="background-color: #d7191c;">3000 to 3017</td>
-    </tr>
-    <tr>
-        <td style="background-color: #f07c4a;">2500 to 3000</td>
-    </tr>
-    <!-- etc -->
-</table> */}
