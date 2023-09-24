@@ -15,31 +15,31 @@ html {
   font-size: 16px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.787);
-  background-color: #333;
+  background-color: #000000;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
 .legend .depth90plus {
-  color: #ff0000;
+  color: #ff0505;
 }
 
 .legend .depth70_89 {
-  color: #f34c19;
+  color: #fc4c00;
 }
 
 .legend .depth50_69 {
-  color: #f39819;
+  color: #f38a19;
 }
 
 .legend .depth30_49 {
-  color: #ecdb18;
+  color: #ecb318e4;
 }
 
 .legend .depth10_29 {
-  color: #b1f11e;
+  color: #f6cb1e;
 }
 
 .legend .depth09minus {
-  color: #41f319;
+  color: #fbff00;
 }

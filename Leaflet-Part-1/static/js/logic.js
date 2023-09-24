@@ -57,12 +57,12 @@ legendInfo.addTo(map)
 
 // Create the color list for each depth bin
 let circleColors = {
-    depth90plus: "#ff0000",
-    depth70_89: "#f34c19",
-    depth50_69: "#f39819",
-    depth30_49: "#ecdb18",
-    depth10_29: "#b1f11e",
-    depth09minus: "#41f319"
+    depth90plus: "#ff0505",
+    depth70_89: "#fc4c00",
+    depth50_69: "#f38a19",
+    depth30_49: "#ecb318e4",
+    depth10_29: "#f6cb1e",
+    depth09minus: "#fbff00"
 }
 
 // Perform API call to United States Geological Survey (USGS) GeoJSON
@@ -78,6 +78,10 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
     console.log("magnitude", features[0].properties.mag)
     console.log("depth", features[0].geometry.coordinates[2])
     console.log("location description", features[0].properties.place)
+    console.log("dataset: ", data.metadata.title)
+
+    // Capture title in a variable
+    dataTitle = data.metadata.title
 
     // Create an object to count the number of markers in each layer
     let eqCount = {
@@ -127,7 +131,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
                 color: "black",
                 fillColor: circleColors[eqDepthCode],
                 weight: 1,
-                fillOpacity: 0.5,
+                fillOpacity: 0.6,
                 radius: 25000 * feature.properties.mag
             }
         )
@@ -135,23 +139,53 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
         newMarker.addTo(layers[eqDepthCode])
 
         // Bind a popup displaying location description and magnitude
-        newMarker.bindPopup("<h3>" + feature.properties.place + "</h3><h4>Magnitude: " + feature.properties.mag + " <br>Depth: " + feature.geometry.coordinates[2] + "km</h4>")
+        newMarker.bindPopup("<h3>" + feature.properties.place + 
+                            "</h3><h4>Magnitude: " + feature.properties.mag + 
+                            " <br>Depth: " + feature.geometry.coordinates[2] + "km</h4>")
     }
 
     // Call the update legend function
-    updateLegend(eqCount)
+    updateLegend(eqCount, dataTitle)
 })
 
-function updateLegend(count) {
+function updateLegend(count, title) {
     document.querySelector(".legend").innerHTML = [
-        "<p>USGS All Earthquakes, Past Week</p>",
-        "<p class='depth90plus'> Earthquakes with depth >= 90km: " + count.depth90plus + "</p>",
-        "<p class='depth70_89'> 70km >= depth  < 90km: " + count.depth70_89 + "</p>",
-        "<p class='depth50_69'> 50km >= depth  < 70km: " + count.depth50_69 + "</p>",
-        "<p class='depth30_49'> 30km >= depth  < 50km: " + count.depth30_49 + "</p>",
-        "<p class='depth10_29'> 10km >= depth  < 30km: " + count.depth10_29 + "</p>",
-        "<p class='depth09minus'> Earthquakes with depth < 10km: " + count.depth09minus + "</p>"
+        "<h2>" + title + "</h2>",
+        "<table>",
+            "<tr class='depth90plus'>", 
+                "<td style='background-color: #ff0505;'>.....</td>",
+                "<td> Earthquakes with depth >= 90km: " + count.depth90plus + "</td>",
+            "</tr>",
+            "<tr class='depth70_89'>", 
+                "<td style='background-color: #fc4c00;'>.....</td>",
+                "<td> 70km >= depth  < 90km: " + count.depth70_89 + "</td>",
+            "</tr>",
+            "<tr class='depth50_69'>", 
+                "<td style='background-color: #f38a19;'>.....</td>",
+                "<td> 50km >= depth  < 70km: " + count.depth50_69 + "</td>",
+            "</tr>",
+            "<tr class='depth30_49'>", 
+                "<td style='background-color: #ecb318e4;'>.....</td>",
+                "<td> 30km >= depth  < 50km: " + count.depth30_49 + "</td>",
+            "</tr>",
+            "<tr class='depth10_29'>", 
+                "<td style='background-color: #f6cb1e;'>.....</td>",
+                "<td> 10km >= depth  < 30km: " + count.depth10_29 + "</td>",
+            "</tr>",
+            "<tr class='depth09minus'>", 
+                "<td style='background-color: #fbff00;'>.....</td>",
+                "<td> Earthquakes with depth < 10km: " + count.depth09minus + "</td>"
     ].join("")
 }
 
 
+
+{/* <table>
+    <tr>
+        <td style="background-color: #d7191c;">3000 to 3017</td>
+    </tr>
+    <tr>
+        <td style="background-color: #f07c4a;">2500 to 3000</td>
+    </tr>
+    <!-- etc -->
+</table> */}
