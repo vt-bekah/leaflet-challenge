@@ -19,6 +19,12 @@ This project displays earthquakes that have been recorded by the United States G
     * Create a overlay menu to allow users to filter based on earthquake depth
 
 
+Example Views: 
+<br> 
+![Initial Load](Leaflet-Part-1/Images/EarthquakeWebsiteOnLoad.png)
+<br>
+![Zoom In](Leaflet-Part-1/Images/EarthquakeWebsiteZoomPopup.png)
+
 # File Notes
 * Leaflet-Part-1 contains the code for the features stated above
   * index.html is the webpage to be rendered calling into leaflet, D3, logic.js, and style.css
@@ -31,13 +37,6 @@ This project displays earthquakes that have been recorded by the United States G
 
 # References
 * United States Geological Survey (USGS) earthquake data was used: https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php 
-
-Example Views: 
-<br> 
-![Initial Load](Leaflet-Part-1/Images/EarthquakeWebsiteOnLoad.png)
-<br>
-![Zoom In](Leaflet-Part-1/Images/EarthquakeWebsiteZoomPopup.png)
-
 
 # Getting Started
 
